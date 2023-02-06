@@ -1,0 +1,19 @@
+.Button{
+    width: 200px;
+    height: 80px;
+    background-color: #4c9cfb;
+    border: 1px solid #30363d;
+    transition-duration: 0.4s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Button:hover{
+    background-color: #0974ef;
+}
+
+.Text{
+    color: #dce3e3;
+    font-size: 16px;
+}
