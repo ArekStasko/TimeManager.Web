@@ -1,4 +1,4 @@
-import Button from "../../atoms/button"
+import Button from "../../../atoms/Button/button"
 function AuthButtons(){
     return(
         <div className="Buttons">

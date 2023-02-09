@@ -1,0 +1,11 @@
+.Icon{
+    width: 42px;
+    height: 42px;
+}
+
+.tm-logo{
+    background-image: url("../../../Recources/logoTM.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}

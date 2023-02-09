@@ -1,8 +1,8 @@
-import '../../styles/button.css'
+import './button.css'
 
-function Button(text){
+function Button(text, style){
     return(
-      <div className="Button">
+      <div className={style}>
           <div className="Text">{text}</div>
       </div>
     );

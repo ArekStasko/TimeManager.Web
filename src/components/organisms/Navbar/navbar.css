@@ -1,0 +1,11 @@
+.Navbar{
+    position: absolute;
+    width: 60%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: transparent;
+    padding: 10px 10px 20px 10px;
+
+    border-radius: 8px;
+}
