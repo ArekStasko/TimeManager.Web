@@ -6,8 +6,8 @@ const Header = () =>{
     const header = (
         <div className="header">
             <div className="main-wrapper">
-                {Icon("Icon tm-logo")}
-                {Annotation("Why TimeManager ?")}
+                <Icon style={"Icon tm-logo"} />
+                <Annotation text={"Why TimeManager ?"} />
             </div>
         </div>
     )

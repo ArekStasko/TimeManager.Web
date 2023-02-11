@@ -5,8 +5,8 @@ const Navbar = () => {
 
     const navbar =(
         <div className="Navbar">
-            {Header()}
-            {NonAuthButtons()}
+            <Header />
+            <NonAuthButtons />
         </div>
     );
 

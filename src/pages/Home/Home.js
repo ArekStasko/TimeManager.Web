@@ -5,8 +5,8 @@ const Home = () => {
 
     const home = (
         <div className="Home">
-            <div className="Background"></div>
-            {Navbar()}
+            <div className="Background"/>
+            <Navbar />
         </div>
     );
 

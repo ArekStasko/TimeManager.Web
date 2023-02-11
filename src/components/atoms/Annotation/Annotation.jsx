@@ -1,6 +1,6 @@
 import "./annotation.css"
 
-const Annotation = (text) => {
+const Annotation = ({text}) => {
     const annotation = (
         <div className="annotation">
             {text}

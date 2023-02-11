@@ -1,9 +1,9 @@
-import Button from "../../../atoms/Button/button"
+import ButtonLink from "../../../atoms/ButtonLink/buttonLink"
 function AuthButtons(){
     return(
         <div className="Buttons">
-            {Button("Manager")}
-            {Button("Sign Out")}
+            <ButtonLink text={"Manager"} />
+            <ButtonLink text={"Sign Out"} />
         </div>
     )
 }

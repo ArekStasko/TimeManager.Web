@@ -1,5 +1,5 @@
 import "./icon.css"
-const Icon = (style) => {
+const Icon = ({style}) => {
     const icon = (
         <div className="Icon">
             <div className={style}></div>

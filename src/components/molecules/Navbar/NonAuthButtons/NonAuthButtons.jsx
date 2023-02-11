@@ -1,10 +1,10 @@
-import Button from "../../../atoms/Button/button"
+import ButtonLink from "../../../atoms/ButtonLink/buttonLink"
 import "./buttons.css"
 function NonAuthButtons(){
     return(
         <div className="Buttons">
-            {Button("Sign In", "btn btn-small btn-transparent btn-magnifyEffect")}
-            {Button("Sign Up", "btn btn-big btn-transparent")}
+                <ButtonLink text={"Sign In"} style={"btn btn-small btn-transparent btn-magnifyEffect"} />
+                <ButtonLink text={"Sign Up"} style={"btn btn-big btn-transparent"} />
         </div>
     )
 }

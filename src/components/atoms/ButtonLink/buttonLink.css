@@ -1,5 +1,6 @@
 .btn{
     height: 40px;
+    text-decoration: none;
     border: 1px solid #30363d;
     transition-duration: 0.4s;
     display: flex;
