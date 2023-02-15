@@ -1,10 +1,10 @@
-import "./SignInBox.css"
-import Button from "../../atoms/Button/Button";
+import "./SignUpBox.css"
+import Button from "../../../atoms/Button/Button";
 
 
-const SignInBox = () => {
+const SignUpBox = () => {
 
-    const signInBox = (
+    const signUpBox = (
         <div className="wrapper">
             <div className="input-wrapper">
                 <label>Username</label>
@@ -14,11 +14,11 @@ const SignInBox = () => {
                 <label>Password</label>
                 <input  className="input" type="password"/>
             </div>
-            <Button text={"Sign In"} />
+            <Button text={"Sign Up"} />
         </div>
     );
 
-    return signInBox;
+    return signUpBox;
 }
 
-export  default  SignInBox;
+export  default  SignUpBox;

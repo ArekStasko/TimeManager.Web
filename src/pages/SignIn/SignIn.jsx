@@ -1,5 +1,5 @@
 import "./SignIn.css"
-import SignInBox from "../../components/organisms/InputBox/SignInBox";
+import SignInBox from "../../components/organisms/InputBox/SignInBox/SignInBox";
 import Annotation from "../../components/atoms/Annotation/Annotation";
 import Icon from "../../components/atoms/Icon/Icon";
 import Header from "../../components/molecules/Navbar/Header/Header";
