@@ -1,0 +1,39 @@
+.SignIn-background{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.Wrapper{
+    width: 60%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.Logo-wrapper{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.Logo-wrapper .header{
+    justify-content: center;
+}
+
+.info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.info div {
+    margin-top: 10px;
+}
