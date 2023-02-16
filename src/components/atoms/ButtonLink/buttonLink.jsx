@@ -1,9 +1,9 @@
 import './buttonLink.css'
 import {Link} from "react-router-dom";
 
-function ButtonLink({text, style}){
+function ButtonLink({text, link, style}){
     return(
-        <Link to="/SignIn" className={style}>
+        <Link to={link} className={style}>
           <div className="Text">{text}</div>
         </Link>
     );

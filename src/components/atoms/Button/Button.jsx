@@ -1,10 +1,10 @@
 import "./Button.css"
 
-const Button = ({text}) => {
+const Button = ({text, event}) => {
 
     const button = (
         <div className="btn-wrapper">
-            <button className="btn btn-event btn-transparent">{text}</button>
+            <button onClick={event} className="btn btn-event btn-transparent">{text}</button>
         </div>
     );
 

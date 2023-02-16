@@ -3,8 +3,8 @@ import "./buttons.css"
 function NonAuthButtons(){
     return(
         <div className="Buttons">
-                <ButtonLink text={"Sign In"} style={"btn btn-small btn-transparent btn-magnifyEffect"} />
-                <ButtonLink text={"Sign Up"} style={"btn btn-big btn-transparent"} />
+                <ButtonLink text={"Sign In"} link={"/SignIn"} style={"btn btn-small btn-transparent btn-magnifyEffect"} />
+                <ButtonLink text={"Sign Up"} link={"/SignUp"} style={"btn btn-big btn-transparent"} />
         </div>
     )
 }
