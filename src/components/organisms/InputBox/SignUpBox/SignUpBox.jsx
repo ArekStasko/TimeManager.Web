@@ -1,42 +1,85 @@
+import React from "react";
+import {connect} from "react-redux"
 import "./SignUpBox.css"
 import Button from "../../../atoms/Button/Button";
-import {useState, useEffect} from "react";
+import {register} from "../../../../actions";
 
+class SignUpBox extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            active: true,
+            username: "",
+            password: "",
+            repeatPassword: ""
+        }
+    };
 
-const SignUpBox = () => {
-    const [active, setActive] = useState(true);
+    HandleSubmit = e => {
+        e.preventDefault();
+        this.props.register(this.state.username, this.state.password);
+    }
 
-    return active ?
-                (
-                    <div className="wrapper">
-                        <div className="input-wrapper">
-                            <label>Username</label>
-                            <input className="input" />
-                        </div>
-                        <div className="input-wrapper">
-                            <label>E-mail Adress</label>
-                            <input className="input" />
-                        </div>
-                        <Button text={"Next"} event={() => setActive(!active)} />
+    render() {
+        return this.state.active ?
+            (
+                <div className="wrapper">
+                    <div className="input-wrapper">
+                        <label htmlFor="username">Username</label>
+                        <input
+                            type="text"
+                            id="username"
+                            value={this.state.username}
+                            onChange={e => this.setState({username: e.target.value})}
+                            className="input"
+                        />
                     </div>
-                )
-                :
-                (
-                    <div className="wrapper">
-                        <div className="input-wrapper">
-                            <label>Password</label>
-                            <input className="input" type="password"/>
-                        </div>
-                        <div className="input-wrapper">
-                            <label>Repeat Password</label>
-                            <input  className="input" type="password"/>
-                        </div>
-                        <div className="btn-wrapper">
-                            <Button text={"Back"} event={() => setActive(!active)}  />
-                            <Button text={"Sign Up"} />
-                        </div>
+                    <div className="input-wrapper">
+                        <label>E-mail Adress</label>
+                        <input className="input"/>
                     </div>
-                )
+                    <Button text={"Next"} event={() =>this.setState({active: !this.state.active})}/>
+                </div>
+            )
+            :
+            (
+                <div className="wrapper">
+                    <div className="input-wrapper">
+                        <label htmlFor="password">Password</label>
+                        <input
+                            id="password"
+                            value={this.state.password}
+                            onChange={e => this.setState({password: e.target.value})}
+                            className="input"
+                            type="password"
+                        />
+                    </div>
+                    <div className="input-wrapper">
+                        <label htmlFor="repeatPassword" >Repeat Password</label>
+                        <input
+                            id="repeatPassword"
+                            value={this.state.repeatPassword}
+                            onChange={e => this.setState({repeatPassword: e.target.value})}
+                            className="input"
+                            type="password"
+                        />
+                    </div>
+                    <div className="btn-wrapper">
+                        <Button text={"Back"} event={e => this.setState({active: !this.state.active})}/>
+                        <Button text={"Sign Up"} event={e => this.HandleSubmit(e)}/>
+                    </div>
+                </div>
+            )
+    }
 }
 
-export  default  SignUpBox;
+const mapStateToProps = ({flash, loading }) => ({
+    flash,
+    loading,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+    register: (username, password) => dispatch(register(username, password)),
+});
+
+export  default connect(mapStateToProps, mapDispatchToProps)(SignUpBox);

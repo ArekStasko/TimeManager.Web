@@ -2,7 +2,6 @@ import "./SignUp.css"
 import Header from "../../components/molecules/Navbar/Header/Header";
 import Annotation from "../../components/atoms/Annotation/Annotation";
 import SignUpBox from "../../components/organisms/InputBox/SignUpBox/SignUpBox";
-
 const SignUp = () => {
 
     const signUp = (
