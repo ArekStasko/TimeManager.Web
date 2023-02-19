@@ -3,6 +3,8 @@ import {connect} from "react-redux"
 import "./SignUpBox.css"
 import Button from "../../../atoms/Button/Button";
 import {register} from "../../../../actions";
+import {FaArrowRight, FaArrowLeft} from "react-icons/fa"
+import LoadingPage from "../../../atoms/Loading/Loading";
 
 class SignUpBox extends React.Component {
     constructor() {
@@ -38,7 +40,7 @@ class SignUpBox extends React.Component {
                         <label>E-mail Adress</label>
                         <input className="input"/>
                     </div>
-                    <Button text={"Next"} event={() =>this.setState({active: !this.state.active})}/>
+                    <Button text={<FaArrowRight/>} event={() =>this.setState({active: !this.state.active})}/>
                 </div>
             )
             :
@@ -65,8 +67,18 @@ class SignUpBox extends React.Component {
                         />
                     </div>
                     <div className="btn-wrapper">
-                        <Button text={"Back"} event={e => this.setState({active: !this.state.active})}/>
-                        <Button text={"Sign Up"} event={e => this.HandleSubmit(e)}/>
+                        {
+                            this.props.loading ? (
+                                <>
+                                    <LoadingPage />
+                                </>
+                            ) : (
+                                <>
+                                    <Button text={<FaArrowLeft/>} event={e => this.setState({active: !this.state.active})}/>
+                                    <Button text={"Sign Up"} event={e => this.HandleSubmit(e)}/>
+                                </>
+                            )
+                        }
                     </div>
                 </div>
             )

@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 import "./SignInBox.css"
 import Button from "../../../atoms/Button/Button";
 import {login} from "../../../../actions";
+import LoadingPage from "../../../atoms/Loading/Loading";
 
 
 class SignInBox extends React.Component {
@@ -42,7 +43,17 @@ class SignInBox extends React.Component {
                         type="password"
                     />
                 </div>
-                <Button text={"Sign In"} event={e => this.HandleSubmit(e)} />
+                {
+                    this.props.loading ? (
+                        <>
+                            <LoadingPage />
+                        </>
+                    ) : (
+                        <>
+                            <Button text={"Sign In"} event={e => this.HandleSubmit(e)} />
+                        </>
+                    )
+                }
             </div>
         );
     }
