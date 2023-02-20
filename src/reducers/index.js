@@ -24,7 +24,9 @@ const rootReducer = (state = initialState, action) => {
                 loading: true,
             }
         case 'REGISTER_SUCC':{
-            SaveToken(action.payload.data.data.userId);
+            console.log("HIT !");
+            console.log(action.payload.data);
+            SaveToken(action.payload.data.token);
             return{
                 ...state,
                 loading: false,

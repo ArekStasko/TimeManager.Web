@@ -9,8 +9,9 @@ export const logout = () => {
 export const register = (username, password) => (dispatch) => {
     dispatch({ type: "REGISTER_REQ" });
 
-    return SignUpCall(username, password)
+    return SignUpCall({UserName: username, Password: password})
         .then(payload => {
+            console.log(payload);
             dispatch({type: "REGISTER_SUCC", payload})
         })
         .catch(exception => {

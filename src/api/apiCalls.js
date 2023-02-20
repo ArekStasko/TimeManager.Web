@@ -6,8 +6,8 @@ const AUTH = 'http://localhost:8080/';
 export const authAxiosInstance = Axios.default.create({ baseURL: AUTH });
 export const apiAxiosInstance = Axios.default.create({ baseURL: API });
 
-export const SignInCall = ({data}) => authAxiosInstance.post('api/Auth/Login/login/', data);
-export const SignUpCall = ({data}) => authAxiosInstance.post('api/Auth/Register/register/', data);
+export const SignInCall = (data) => authAxiosInstance.post('api/Auth/Login/login/', data);
+export const SignUpCall = (data) => authAxiosInstance.post('api/Auth/Register/register/', data);
 
 export const GetTasks = apiAxiosInstance.post('data/Task/Get');
 export const GetTaskById = apiAxiosInstance.post('data/Task/GetById');
