@@ -1,5 +1,5 @@
 import { persistReducer } from "redux-persist"
-import {SaveToken} from "../auth/AuthHelper";
+import {GetToken, GetUserId, SaveToken, SaveUserId} from "../auth/AuthHelper";
 import storage from "redux-persist/lib/storage"
 
 const initialState = {}
@@ -25,6 +25,7 @@ const rootReducer = (state = initialState, action) => {
             }
         case 'REGISTER_SUCC':{
             SaveToken(action.payload.data.token);
+            SaveUserId(action.payload.data.userId);
             return{
                 ...state,
                 loading: false,
@@ -35,7 +36,7 @@ const rootReducer = (state = initialState, action) => {
             }
         }
         case 'LOGIN_SUCC':{
-            SaveToken(action.payload.data.data.userId);
+            SaveToken(action.payload.data.token);
             return{
                 ...state,
                 loading: false,
@@ -44,6 +45,28 @@ const rootReducer = (state = initialState, action) => {
                     message: 'Nice to see you again !'
                 },
             }
+        }
+        case 'RESTRICTED_AREA_REQ':{
+            return{
+                ...state,
+                loading: true,
+            }
+        }
+        case 'RESCTRICTED_AREA_RES':{
+            if(action.payload.data){
+                return{
+                    ...state,
+                    loading: false,
+                    access: true
+                }
+            }
+
+            return{
+                ...state,
+                loading: false,
+                access: false
+            }
+
         }
         case 'ERROR':
             return{

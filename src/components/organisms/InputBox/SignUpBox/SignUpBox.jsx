@@ -94,4 +94,4 @@ const mapDispatchToProps = (dispatch) => ({
     register: (username, password) => dispatch(register(username, password)),
 });
 
-export  default connect(mapStateToProps, mapDispatchToProps)(SignUpBox);
+export default connect(mapStateToProps, mapDispatchToProps)(SignUpBox);

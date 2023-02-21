@@ -1,5 +1,6 @@
 import axios from "axios";
-import {SignInCall, SignUpCall} from "../api/apiCalls";
+import {SignInCall, SignUpCall, VerifyToken} from "../api/apiCalls";
+import {GetToken, GetUserId} from "../auth/AuthHelper";
 
 export const logout = () => {
     return {
@@ -21,7 +22,7 @@ export const register = (username, password) => (dispatch) => {
 
 export const login = (username, password) => (dispatch) => {
     dispatch({ type: "LOGIN_REQ" });
-    return SignInCall(username, password)
+    return SignInCall({UserName: username, Password: password})
         .then(payload => {
             dispatch({type: "LOGIN_SUCC", payload})
         })
@@ -29,6 +30,20 @@ export const login = (username, password) => (dispatch) => {
             dispatch({type: "ERROR", exception})
         });
 };
+
+export const checkToken = () => (dispatch) => {
+    dispatch({type: "RESCTRICTED_AREA"})
+    const token = GetToken();
+    const userId = GetUserId();
+    if(token == null || userId == null) return;
+    return VerifyToken({token: token, userid: userId})
+        .then(payload => {
+            dispatch({type: "RESCTRICTED_AREA_RES", payload})
+        })
+        .catch(exception => {
+            dispatch({type: "ERROR"}, exception);
+        })
+}
 
 export const resetFlash = () => {
     return {
