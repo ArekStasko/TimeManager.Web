@@ -1,5 +1,5 @@
 import { persistReducer } from "redux-persist"
-import {GetToken, GetUserId, SaveToken, SaveUserId} from "../auth/AuthHelper";
+import {GetToken, GetUserId, SaveToken, SaveUserId, RemoveToken} from "../auth/AuthHelper";
 import storage from "redux-persist/lib/storage"
 
 const initialState = {}
@@ -43,6 +43,17 @@ const rootReducer = (state = initialState, action) => {
                 flash: {
                     type: 'SUCCESS',
                     message: 'Nice to see you again !'
+                },
+            }
+        }
+        case 'SIGN_OUT':{
+            RemoveToken();
+            return{
+                ...state,
+                loading: false,
+                flash: {
+                    type: 'SUCCESS',
+                    message: 'Hope to see you again !'
                 },
             }
         }

@@ -8,6 +8,11 @@ export const GetUserId = () => {
     return userId;
 }
 
+export const RemoveToken = () => {
+    Cookies.remove('token');
+    Cookies.remove('userid')
+}
+
 export const SaveToken = (token) => {
     Cookies.set('token', token);
 }
