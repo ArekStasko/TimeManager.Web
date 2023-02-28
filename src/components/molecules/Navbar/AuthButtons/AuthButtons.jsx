@@ -7,11 +7,17 @@ class AuthButtons extends React.Component{
     constructor() {
         super();
     }
+
+    signOutEvent(){
+        this.props.signout();
+        window.location.reload(false);
+    }
+
     render(){
         return(
             <div className="Buttons">
                 <ButtonLink text={"Manager"} />
-                <Button text={"Sign Out"} event={() => this.props.signout()} />
+                <Button text={"Sign Out"} event={() => this.signOutEvent()} />
             </div>
         )
     }

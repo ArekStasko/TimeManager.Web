@@ -5,6 +5,7 @@ import Button from "../../../atoms/Button/Button";
 import {register} from "../../../../actions";
 import {FaArrowRight, FaArrowLeft} from "react-icons/fa"
 import LoadingPage from "../../../atoms/Loading/Loading";
+import { Navigate } from "react-router-dom";
 
 class SignUpBox extends React.Component {
     constructor() {
@@ -13,16 +14,23 @@ class SignUpBox extends React.Component {
             active: true,
             username: "",
             password: "",
-            repeatPassword: ""
+            repeatPassword: "",
+            redirect: false
         }
     };
 
     HandleSubmit = e => {
         e.preventDefault();
         this.props.register(this.state.username, this.state.password);
+        this.setState({redirect: true});
     }
 
     render() {
+
+        if(this.state.redirect && !this.props.loading){
+            return <Navigate to="/" />
+        }
+
         return this.state.active ?
             (
                 <div className="wrapper">
@@ -74,7 +82,7 @@ class SignUpBox extends React.Component {
                                 </>
                             ) : (
                                 <>
-                                    <Button text={<FaArrowLeft/>} event={e => this.setState({active: !this.state.active})}/>
+                                    <Button text={<FaArrowLeft/>} event={() => this.setState({active: !this.state.active})}/>
                                     <Button text={"Sign Up"} event={e => this.HandleSubmit(e)}/>
                                 </>
                             )

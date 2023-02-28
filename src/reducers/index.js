@@ -37,6 +37,7 @@ const rootReducer = (state = initialState, action) => {
         }
         case 'LOGIN_SUCC':{
             SaveToken(action.payload.data.token);
+            SaveUserId(action.payload.data.userId);
             return{
                 ...state,
                 loading: false,

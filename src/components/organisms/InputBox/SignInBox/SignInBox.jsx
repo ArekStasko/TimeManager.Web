@@ -4,23 +4,33 @@ import "./SignInBox.css"
 import Button from "../../../atoms/Button/Button";
 import {login} from "../../../../actions";
 import LoadingPage from "../../../atoms/Loading/Loading";
-
+import { Navigate } from 'react-router-dom';
 
 class SignInBox extends React.Component {
+
+    n
+
     constructor() {
         super();
         this.state = {
             username: "",
-            password: ""
+            password: "",
+            redirect: false
         };
     };
 
     HandleSubmit(e){
         e.preventDefault();
         this.props.login(this.state.username, this.state.password);
+        this.setState({redirect: true});
     }
 
     render(){
+
+        if(this.state.redirect && !this.props.loading){
+            return <Navigate to="/" />
+        }
+
         return (
             <div className="wrapper">
                 <div className="input-wrapper">
