@@ -1,27 +1,42 @@
 import "./SignIn.css"
 import SignInBox from "../../components/organisms/InputBox/SignInBox/SignInBox";
 import Annotation from "../../components/atoms/Annotation/Annotation";
-import Icon from "../../components/atoms/Icon/Icon";
 import Header from "../../components/molecules/Navbar/Header/Header";
+import {connect} from "react-redux";
+import FlashMessage from "../../flash/flash";
+import React from "react";
 
-const SignIn = () => {
-
-    const signIn = (
-        <div className="SignIn-background">
-            <div className="Wrapper">
-                <div className="Logo-wrapper">
-                    <Header />
+class SignIn extends React.Component {
+    constructor() {
+        super();
+    }
+    render(){
+        return(
+            <>
+                {this.props.flash ? (
+                    <div className="flash-register">
+                        <FlashMessage errMessage={"Pass correct values"} duration={5000} />
+                    </div>
+                ) : null}
+                <div className="SignIn-background">
+                    <div className="Wrapper">
+                        <div className="Logo-wrapper">
+                            <Header />
+                        </div>
+                        <SignInBox />
+                        <div className="info">
+                            <Annotation text="Forgot Password ?" link={"forgotPassword"} />
+                            <Annotation text="Don't have an account ?" link={"SignUp"} />
+                        </div>
+                    </div>
                 </div>
-                <SignInBox />
-                <div className="info">
-                    <Annotation text="Forgot Password ?" link={"forgotPassword"} />
-                    <Annotation text="Don't have an account ?" link={"SignUp"} />
-                </div>
-            </div>
-        </div>
-    );
-
-    return signIn;
+            </>
+        )
+    }
 }
 
-export default  SignIn;
+const mapStateToProps = ({flash}) => ({
+    flash
+});
+
+export default  connect(mapStateToProps)(SignIn);

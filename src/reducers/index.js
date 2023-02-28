@@ -88,6 +88,11 @@ const rootReducer = (state = initialState, action) => {
                     type: 'ERROR',
                     message: null,
                 },
+            };
+        case "FLASH_RESET":
+            return{
+                ...state,
+                flash: null
             }
         default:
             return state;

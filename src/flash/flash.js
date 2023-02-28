@@ -1,10 +1,9 @@
 import React, { useEffect } from "react";
 import { connect } from 'react-redux'
 import { resetFlash } from '../actions/index'
-import { IoMdCheckmarkCirc } from "react-icons/io";
-import { ImCross } from "react-icons/im";
 
 const FlashMessage = ({ errMessage, duration, resetFlash, flash }) => {
+
 
     useEffect(() => {
         setTimeout(() => {
@@ -17,14 +16,12 @@ const FlashMessage = ({ errMessage, duration, resetFlash, flash }) => {
             case 'ERROR':
                 return(
                     <div className='flash-error'>
-                        <ImCross className="flash-error__icon" />
                         <p>{errMessage}</p>
                     </div>
                 )
             case 'SUCCESS':
                 return(
                     <div className='flash-success'>
-                        <IoMdCheckmarkCirc className="flash-success__icon" />
                         <p>{flash.message}</p>
                     </div>
                 )
@@ -46,7 +43,7 @@ const FlashMessage = ({ errMessage, duration, resetFlash, flash }) => {
     );
 };
 
-const mapStateToProps = ({flash}) => ({flash})
+const mapStateToProps = (flash) => ({flash})
 
 const mapDispatchToProps = dispatch => ({
     resetFlash: () =>

@@ -8,8 +8,6 @@ import { Navigate } from 'react-router-dom';
 
 class SignInBox extends React.Component {
 
-    n
-
     constructor() {
         super();
         this.state = {
