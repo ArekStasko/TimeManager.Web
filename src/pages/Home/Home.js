@@ -13,9 +13,7 @@ class Home extends React.Component {
         return (
             <>
                 {this.props.flash ? (
-                    <div className="flash-register">
-                        <FlashMessage errMessage={"Pass correct values"} duration={5000}/>
-                    </div>
+                    <FlashMessage errMessage={"Pass correct values"} duration={5000}/>
                 ) : null}
                 <div className="Home">
                     <div className="Background"/>

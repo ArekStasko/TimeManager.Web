@@ -14,9 +14,7 @@ class SignUp extends React.Component {
         return (
             <>
                 {this.props.flash ? (
-                    <div className="flash-register">
                         <FlashMessage errMessage={"Pass correct values"} duration={5000} />
-                    </div>
                 ) : null}
             <div className="SignUp-background">
                 <div className="Wrapper">

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { connect } from 'react-redux'
 import { resetFlash } from '../actions/index'
-
+import './flash.css'
 const FlashMessage = ({ errMessage, duration, resetFlash, flash }) => {
 
 
@@ -9,7 +9,7 @@ const FlashMessage = ({ errMessage, duration, resetFlash, flash }) => {
         setTimeout(() => {
             resetFlash()
         }, duration);
-    }, [resetFlash, duration]);
+    }, [resetFlash, 100000]);
 
     const pick = () => {
         switch (flash.type) {
