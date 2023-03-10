@@ -1,17 +1,14 @@
 import React from "react";
 import {connect} from "react-redux"
 import "./SignUpBox.css"
-import Button from "../../../atoms/Button/Button";
 import {register} from "../../../../actions";
-import {FaArrowRight, FaArrowLeft} from "react-icons/fa"
-import LoadingPage from "../../../atoms/Loading/Loading";
 import { Navigate } from "react-router-dom";
+import {Button, CircularProgress, TextField} from "@mui/material";
 
 class SignUpBox extends React.Component {
     constructor() {
         super();
         this.state = {
-            active: true,
             username: "",
             password: "",
             repeatPassword: "",
@@ -31,64 +28,49 @@ class SignUpBox extends React.Component {
             return <Navigate to="/" />
         }
 
-        return this.state.active ?
-            (
-                <div className="wrapper">
-                    <div className="input-wrapper">
-                        <label htmlFor="username">Username</label>
-                        <input
-                            type="text"
-                            id="username"
-                            value={this.state.username}
-                            onChange={e => this.setState({username: e.target.value})}
-                            className="input"
-                        />
-                    </div>
-                    <div className="input-wrapper">
-                        <label>E-mail Adress</label>
-                        <input className="input"/>
-                    </div>
-                    <Button text={<FaArrowRight/>} event={() =>this.setState({active: !this.state.active})}/>
-                </div>
-            )
-            :
-            (
-                <div className="wrapper">
-                    <div className="input-wrapper">
-                        <label htmlFor="password">Password</label>
-                        <input
-                            id="password"
-                            value={this.state.password}
-                            onChange={e => this.setState({password: e.target.value})}
-                            className="input"
-                            type="password"
-                        />
-                    </div>
-                    <div className="input-wrapper">
-                        <label htmlFor="repeatPassword" >Repeat Password</label>
-                        <input
-                            id="repeatPassword"
-                            value={this.state.repeatPassword}
-                            onChange={e => this.setState({repeatPassword: e.target.value})}
-                            className="input"
-                            type="password"
-                        />
-                    </div>
-                    <div className="btn-wrapper">
+        return(
+                    <div className="wrapper">
+                        <div className="input-wrapper">
+                            <TextField
+                                value={this.state.username}
+                                onChange={e => this.setState({username: e.target.value})}
+                                variant="filled"
+                                id="outlined-basic"
+                                label="Username"
+                            />
+                        </div>
+                        <div className="input-wrapper">
+                            <TextField
+                                value={this.state.password}
+                                onChange={e => this.setState({password: e.target.value})}
+                                variant="filled"
+                                id="outlined-basic"
+                                label="Password"
+                                type="password"
+                            />
+                        </div>
+                        <div className="input-wrapper">
+                            <TextField
+                                value={this.state.repeatPassword}
+                                onChange={e => this.setState({repeatPassword: e.target.value})}
+                                variant="filled"
+                                id="outlined-basic"
+                                label="Repeat Password"
+                                type="password"
+                            />
+                        </div>
                         {
                             this.props.loading ? (
                                 <>
-                                    <LoadingPage />
+                                    <CircularProgress />
                                 </>
                             ) : (
                                 <>
-                                    <Button text={<FaArrowLeft/>} event={() => this.setState({active: !this.state.active})}/>
-                                    <Button text={"Sign Up"} event={e => this.HandleSubmit(e)}/>
+                                    <Button onClick={e => this.HandleSubmit(e)} variant="outlined" size="large" >Sign Up</Button>
                                 </>
                             )
                         }
                     </div>
-                </div>
             )
     }
 }

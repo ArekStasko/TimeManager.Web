@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { connect } from 'react-redux'
 import { resetFlash } from '../actions/index'
 import './flash.css'
+import {Alert, AlertTitle} from "@mui/material";
 const FlashMessage = ({ errMessage, duration, resetFlash, flash }) => {
 
 
@@ -15,21 +16,24 @@ const FlashMessage = ({ errMessage, duration, resetFlash, flash }) => {
         switch (flash.type) {
             case 'ERROR':
                 return(
-                    <div className='flash-error'>
-                        <p>{errMessage}</p>
-                    </div>
+                    <Alert severity="error">
+                        <AlertTitle>Error</AlertTitle>
+                        {errMessage}
+                    </Alert>
                 )
             case 'SUCCESS':
                 return(
-                    <div className='flash-success'>
-                        <p>{flash.message}</p>
-                    </div>
+                    <Alert severity="success">
+                        <AlertTitle>Success</AlertTitle>
+                        {errMessage}
+                    </Alert>
                 )
             default:
                 return(
-                    <div className='flash-unknown'>
-                        <h1>Unknown error</h1>
-                    </div>
+                    <Alert severity="warning">
+                        <AlertTitle>Warning</AlertTitle>
+                        {errMessage}
+                    </Alert>
                 )
         }
     }
