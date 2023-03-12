@@ -1,4 +1,4 @@
-import "./Button.css"
+import "../assets/styles/components/Button.css"
 
 const Button = ({text, event}) => {
 

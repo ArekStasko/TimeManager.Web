@@ -1,4 +1,4 @@
-import './buttonLink.css'
+import '../assets/styles/components/ButtonLink.css'
 import {Link} from "react-router-dom";
 
 function ButtonLink({text, link, style}){

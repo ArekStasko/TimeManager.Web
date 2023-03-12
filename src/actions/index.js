@@ -1,6 +1,6 @@
 import axios from "axios";
 import {SignInCall, SignUpCall, VerifyToken} from "../api/apiCalls";
-import {GetToken, GetUserId} from "../auth/AuthHelper";
+import {GetToken, GetUserId} from "../api/auth/AuthHelper";
 
 export const signout = () => (dispatch) => dispatch({type: "SIGN_OUT"});
 

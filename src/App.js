@@ -2,10 +2,10 @@ import './App.css';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
 import { Provider } from "react-redux"
 import { store, persistor } from "./store/index";
-import Home from './pages/Home/Home'
+import Home from './Pages/Home'
 import {PersistGate} from "redux-persist/integration/react";
-import SignIn from "./pages/SignIn/SignIn";
-import SignUp from "./pages/SignUp/SignUp";
+import SignIn from "./Pages/SignIn";
+import SignUp from "./Pages/SignUp";
 
 function App() {
   return (

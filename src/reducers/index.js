@@ -1,5 +1,5 @@
 import { persistReducer } from "redux-persist"
-import {GetToken, GetUserId, SaveToken, SaveUserId, RemoveToken} from "../auth/AuthHelper";
+import {GetToken, GetUserId, SaveToken, SaveUserId, RemoveToken} from "../api/auth/AuthHelper";
 import storage from "redux-persist/lib/storage"
 
 const initialState = {}

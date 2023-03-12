@@ -1,11 +1,13 @@
-import React from "react";
-import {connect} from "react-redux"
-import "./SignUpBox.css"
-import {register} from "../../../../actions";
-import { Navigate } from "react-router-dom";
+import "../assets/styles/pages/SignUp.css"
+import Annotation from "../components/Annotation";
+import { connect } from "react-redux";
+import React from 'react';
+import FlashMessage from "../components/Flash";
 import {Button, CircularProgress, TextField} from "@mui/material";
-
-class SignUpBox extends React.Component {
+import Icon from "../components/Icon";
+import {register} from "../actions";
+import {Navigate} from "react-router-dom";
+class SignUp extends React.Component {
     constructor() {
         super();
         this.state = {
@@ -14,7 +16,7 @@ class SignUpBox extends React.Component {
             repeatPassword: "",
             redirect: false
         }
-    };
+    }
 
     HandleSubmit = e => {
         e.preventDefault();
@@ -22,13 +24,27 @@ class SignUpBox extends React.Component {
         this.setState({redirect: true});
     }
 
-    render() {
+    render(){
 
         if(this.state.redirect && !this.props.loading){
             return <Navigate to="/" />
         }
 
-        return(
+        return (
+            <>
+                {this.props.flash ? (
+                        <FlashMessage errMessage={"Pass correct values"} duration={5000} />
+                ) : null}
+            <div className="SignUp-background">
+                <div className="Wrapper">
+                    <div className="Logo-wrapper">
+                        <div className="header">
+                            <div className="main-wrapper">
+                                <Icon style={"Icon tm-logo"} />
+                                <Annotation text={"Why TimeManager ?"} />
+                            </div>
+                        </div>
+                    </div>
                     <div className="wrapper">
                         <div className="input-wrapper">
                             <TextField
@@ -71,11 +87,18 @@ class SignUpBox extends React.Component {
                             )
                         }
                     </div>
-            )
+                    <div className="info">
+                        <Annotation text="Already have an account ?" link={"SignIn"} />
+                    </div>
+                </div>
+            </div>
+            </>
+        );
     }
+
 }
 
-const mapStateToProps = ({flash, loading }) => ({
+const mapStateToProps = ({flash, loading}) => ({
     flash,
     loading,
 });
@@ -84,4 +107,4 @@ const mapDispatchToProps = (dispatch) => ({
     register: (username, password) => dispatch(register(username, password)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignUpBox);
+export default  connect(mapStateToProps, mapDispatchToProps)(SignUp);

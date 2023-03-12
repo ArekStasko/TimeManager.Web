@@ -1,7 +1,7 @@
-import Navbar from "../../components/organisms/Navbar/navbar"
-import "./home.css"
+import Navbar from "../components/Navbar"
+import "../assets/styles/pages/home.css"
 import {connect} from "react-redux";
-import FlashMessage from "../../flash/flash";
+import FlashMessage from "../components/Flash"
 import React from "react";
 
 class Home extends React.Component {

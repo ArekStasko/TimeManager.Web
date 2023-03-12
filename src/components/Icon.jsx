@@ -1,4 +1,4 @@
-import "./icon.css"
+import "../assets/styles/components/Icon.css"
 const Icon = ({style}) => {
     const icon = (
         <div className="Icon">

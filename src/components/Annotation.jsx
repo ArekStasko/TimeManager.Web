@@ -1,4 +1,4 @@
-import "./annotation.css"
+import "../assets/styles/components/Annotation.css"
 import {Link} from "react-router-dom";
 
 const Annotation = ({text, link}) => {
