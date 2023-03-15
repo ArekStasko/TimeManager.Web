@@ -1,11 +1,9 @@
 import "../assets/styles/components/Navbar.css"
+import "../assets/styles/components/Icon.css"
 import {checkToken, signout} from "../actions";
 import {connect} from "react-redux";
 import React from 'react';
-import ButtonLink from "./ButtonLink";
-import Button from "./Button";
-import Icon from "./Icon";
-import Annotation from "./Annotation";
+import {Button, Link} from "@mui/material";
 
 class Navbar extends React.Component  {
 
@@ -27,23 +25,25 @@ class Navbar extends React.Component  {
             <div className="Navbar">
                 <div className="header">
                     <div className="main-wrapper">
-                        <Icon style={"Icon tm-logo"} />
-                        <Annotation text={"Why TimeManager ?"} />
+                        <div className="Icon">
+                            <div className="Icon tm-logo"></div>
+                        </div>
+                        <Link href="#" underline="hover" color="white">Why TimeManager ?</Link>
                     </div>
                 </div>
                 {
                     this.props.access ?
                         (
                             <div className="Buttons">
-                                <ButtonLink text={"Manager"} />
-                                <Button text={"Sign Out"} event={() => this.signOutEvent()} />
+                                <Button variant="contained" size="large">Manager</Button>
+                                <Button variant="outlined" size="large" OnClick={() => this.signOutEvent()}>Sign Out</Button>
                             </div>
                         )
                         :
                         (
                             <div className="Buttons">
-                                <ButtonLink text={"Sign In"} link={"/SignIn"} style={"btn btn-small btn-transparent btn-magnifyEffect"} />
-                                <ButtonLink text={"Sign Up"} link={"/SignUp"} style={"btn btn-big btn-transparent"} />
+                                <Button variant="contained" size="large" href="/SignIn">Sign In</Button>
+                                <Button variant="contained" size="large" href="/SignUp">Sign Up</Button>
                             </div>
                         )
                 }

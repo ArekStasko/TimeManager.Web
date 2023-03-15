@@ -1,15 +1,12 @@
 import "../assets/styles/pages/SignIn.css"
 import "../assets/styles/components/Header.css"
 import "../assets/styles/components/Buttons.css"
-import Annotation from "../components/Annotation";
 import {connect} from "react-redux";
 import FlashMessage from "../components/Flash";
 import React from "react";
-import Button from "../components/Button";
 import {Navigate} from "react-router-dom";
 import {login} from "../actions";
-import Icon from "../components/Icon";
-import {CircularProgress} from "@mui/material";
+import {Button, CircularProgress, Link, TextField} from "@mui/material";
 
 class SignIn extends React.Component {
     constructor() {
@@ -43,29 +40,32 @@ class SignIn extends React.Component {
                         <div className="Logo-wrapper">
                             <div className="header">
                                 <div className="main-wrapper">
-                                    <Icon style={"Icon tm-logo"} />
-                                    <Annotation text={"Why TimeManager ?"} />
+                                    <div className="Icon">
+                                        <div className="Icon tm-logo"></div>
+                                    </div>
+                                    <Link href="#" underline="hover" color="white">Why TimeManager ?</Link>
                                 </div>
                             </div>
                         </div>
                         <div className="wrapper">
                             <div className="input-wrapper">
-                                <label htmlFor="username">Username</label>
-                                <input
-                                    id="username"
-                                    type="text"
+                                <TextField
                                     value={this.state.username}
                                     onChange={e => this.setState({username: e.target.value})}
-                                    className="input"
+                                    variant="outlined"
+                                    margin="dense"
+                                    id="outlined-basic"
+                                    label="Username"
                                 />
                             </div>
                             <div className="input-wrapper">
-                                <label>Password</label>
-                                <input
-                                    id="password"
+                                <TextField
                                     value={this.state.password}
                                     onChange={e => this.setState({password: e.target.value})}
-                                    className="input"
+                                    variant="outlined"
+                                    id="outlined-basic"
+                                    label="Password"
+                                    margin="dense"
                                     type="password"
                                 />
                             </div>
@@ -76,14 +76,14 @@ class SignIn extends React.Component {
                                     </>
                                 ) : (
                                     <>
-                                        <Button text={"Sign In"} event={e => this.HandleSubmit(e)} />
+                                        <Button variant="outlined" size="large" onClick={e => this.HandleSubmit(e)}>Sign In</Button>
                                     </>
                                 )
                             }
                         </div>
                         <div className="info">
-                            <Annotation text="Forgot Password ?" link={"forgotPassword"} />
-                            <Annotation text="Don't have an account ?" link={"SignUp"} />
+                            <Link href="forgotPassword" underline="hover" color="white">Forgot Password ?</Link>
+                            <Link href="SignUp" underline="hover" color="white">Don't have an account ?</Link>
                         </div>
                     </div>
                 </div>
