@@ -1,6 +1,3 @@
-import "../assets/styles/pages/SignIn.css"
-import "../assets/styles/components/Header.css"
-import "../assets/styles/components/Buttons.css"
 import {connect} from "react-redux";
 import FlashMessage from "../components/Flash";
 import React from "react";

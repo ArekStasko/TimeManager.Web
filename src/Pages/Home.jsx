@@ -1,5 +1,5 @@
 import Navbar from "../components/Navbar"
-import "../assets/styles/pages/home.css"
+import "../assets/styles/themes/default/pages/home.scss"
 import {connect} from "react-redux";
 import FlashMessage from "../components/Flash"
 import React from "react";

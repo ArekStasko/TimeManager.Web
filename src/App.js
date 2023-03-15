@@ -1,4 +1,5 @@
 import './App.css';
+import './assets/styles/themes/default/theme.scss'
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
 import { Provider } from "react-redux"
 import { store, persistor } from "./store/index";

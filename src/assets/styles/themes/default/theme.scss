@@ -1,0 +1,12 @@
+@import '../../fonts.scss';
+@import '../../mixins.scss';
+@import '../../normalize.scss';
+@import '../../variables.scss';
+@import '../../global.scss';
+
+@import "components/flash";
+@import "components/navbar";
+
+@import "pages/home";
+@import "pages/sign-up";
+@import "pages/sign-in";

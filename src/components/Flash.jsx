@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { connect } from 'react-redux'
 import { resetFlash } from '../actions'
-import '../assets/styles/components/Flash.css'
+import '../assets/styles/themes/default/components/flash.scss'
 import {Alert, AlertTitle} from "@mui/material";
 const FlashMessage = ({ errMessage, duration, resetFlash, flash }) => {
 

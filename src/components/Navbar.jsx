@@ -1,5 +1,3 @@
-import "../assets/styles/components/Navbar.css"
-import "../assets/styles/components/Icon.css"
 import {checkToken, signout} from "../actions";
 import {connect} from "react-redux";
 import React from 'react';

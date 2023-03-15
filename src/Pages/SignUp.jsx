@@ -1,4 +1,4 @@
-import "../assets/styles/pages/SignUp.css"
+import "../assets/styles/themes/default/pages/sign-up.scss"
 import { connect } from "react-redux";
 import React from 'react';
 import FlashMessage from "../components/Flash";
