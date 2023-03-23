@@ -33,20 +33,14 @@ class SignUp extends React.Component {
                 {this.props.flash ? (
                         <FlashMessage errMessage={"Pass correct values"} duration={5000} />
                 ) : null}
-            <div className="SignUp-background">
-                <div className="Wrapper">
-                    <div className="Logo-wrapper">
-                        <div className="header">
-                            <div className="main-wrapper">
-                                <div className="Icon">
-                                    <div className="Icon tm-logo"></div>
-                                </div>
+            <div className="signup">
+                <div className="signup__wrapper">
+                    <div className="signup__wrapper--logo">
+                                <div/>
                                 <Link href="#" underline="hover" color="white">Why TimeManager ?</Link>
-                            </div>
-                        </div>
                     </div>
-                    <div className="wrapper">
-                        <div className="input-wrapper">
+                    <div className="signup__form">
+                        <div className="signup__form--input">
                             <TextField
                                 value={this.state.username}
                                 onChange={e => this.setState({username: e.target.value})}
@@ -55,7 +49,7 @@ class SignUp extends React.Component {
                                 label="Username"
                             />
                         </div>
-                        <div className="input-wrapper">
+                        <div className="signup__form--input">
                             <TextField
                                 value={this.state.password}
                                 onChange={e => this.setState({password: e.target.value})}
@@ -65,7 +59,7 @@ class SignUp extends React.Component {
                                 type="password"
                             />
                         </div>
-                        <div className="input-wrapper">
+                        <div className="signup__form--input">
                             <TextField
                                 value={this.state.repeatPassword}
                                 onChange={e => this.setState({repeatPassword: e.target.value})}
@@ -87,7 +81,7 @@ class SignUp extends React.Component {
                             )
                         }
                     </div>
-                    <div className="info">
+                    <div className="signup__info">
                         <Link href="SignIn" underline="hover" color="white">Already have an account ?</Link>
                     </div>
                 </div>

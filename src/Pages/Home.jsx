@@ -2,7 +2,7 @@ import Navbar from "../components/Navbar"
 import "../assets/styles/themes/default/pages/home.scss"
 import {connect} from "react-redux";
 import FlashMessage from "../components/Flash"
-import React from "react";
+import React, {Suspense} from "react";
 
 class Home extends React.Component {
     constructor() {
@@ -15,8 +15,8 @@ class Home extends React.Component {
                 {this.props.flash ? (
                     <FlashMessage errMessage={"Pass correct values"} duration={5000}/>
                 ) : null}
-                <div className="Home">
-                    <div className="Background"/>
+                <div className="home">
+                    <div className="home__background"/>
                     <Navbar/>
                 </div>
             </>

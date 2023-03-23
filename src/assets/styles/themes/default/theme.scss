@@ -4,9 +4,9 @@
 @import '../../variables.scss';
 @import '../../global.scss';
 
-@import "components/flash";
-@import "components/navbar";
+@import "./components/flash.scss";
+@import "./components/navbar.scss";
 
-@import "pages/home";
-@import "pages/sign-up";
-@import "pages/sign-in";
+@import "./pages/home.scss";
+@import "./pages/sign-up.scss";
+@import "./pages/sign-in.scss";

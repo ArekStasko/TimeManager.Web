@@ -32,20 +32,14 @@ class SignIn extends React.Component {
                 {this.props.flash ? (
                         <FlashMessage errMessage={"Pass correct values"} duration={5000} />
                 ) : null}
-                <div className="SignIn-background">
-                    <div className="Wrapper">
-                        <div className="Logo-wrapper">
-                            <div className="header">
-                                <div className="main-wrapper">
-                                    <div className="Icon">
-                                        <div className="Icon tm-logo"></div>
-                                    </div>
+                <div className="signin">
+                    <div className="signin__wrapper">
+                        <div className="signin__wrapper--logo">
+                                    <div/>
                                     <Link href="#" underline="hover" color="white">Why TimeManager ?</Link>
-                                </div>
-                            </div>
                         </div>
-                        <div className="wrapper">
-                            <div className="input-wrapper">
+                        <div className="signin__form">
+                            <div className="signin__form--input">
                                 <TextField
                                     value={this.state.username}
                                     onChange={e => this.setState({username: e.target.value})}
@@ -55,7 +49,7 @@ class SignIn extends React.Component {
                                     label="Username"
                                 />
                             </div>
-                            <div className="input-wrapper">
+                            <div className="signin__form--input">
                                 <TextField
                                     value={this.state.password}
                                     onChange={e => this.setState({password: e.target.value})}
@@ -78,7 +72,7 @@ class SignIn extends React.Component {
                                 )
                             }
                         </div>
-                        <div className="info">
+                        <div className="signin__info">
                             <Link href="forgotPassword" underline="hover" color="white">Forgot Password ?</Link>
                             <Link href="SignUp" underline="hover" color="white">Don't have an account ?</Link>
                         </div>

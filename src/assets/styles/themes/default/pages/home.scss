@@ -1,20 +1,20 @@
-.Home{
+.home{
     height: 100vh;
     width: 100vw;
     display: flex;
     justify-content: center;
     align-items: flex-start;
-}
 
-.Background{
-    color: white;
-    font-size: 400px;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background-image: url("../../../../Recources/TimeManagerBackground.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    opacity: 55%;
+    &__background{
+        color: white;
+        font-size: 400px;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-image: url("../../../../Recources/TimeManagerBackground.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        opacity: 55%;
+    }
 }

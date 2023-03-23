@@ -20,26 +20,22 @@ class Navbar extends React.Component  {
 
     render() {
         return (
-            <div className="Navbar">
-                <div className="header">
-                    <div className="main-wrapper">
-                        <div className="Icon">
-                            <div className="Icon tm-logo"></div>
-                        </div>
+            <div className="navbar">
+                <div className="navbar__header">
+                        <div/>
                         <Link href="#" underline="hover" color="white">Why TimeManager ?</Link>
-                    </div>
                 </div>
                 {
                     this.props.access ?
                         (
-                            <div className="Buttons">
+                            <div className="navbar__buttons">
                                 <Button variant="contained" size="large">Manager</Button>
                                 <Button variant="outlined" size="large" OnClick={() => this.signOutEvent()}>Sign Out</Button>
                             </div>
                         )
                         :
                         (
-                            <div className="Buttons">
+                            <div className="navbar__buttons">
                                 <Button variant="contained" size="large" href="/SignIn">Sign In</Button>
                                 <Button variant="contained" size="large" href="/SignUp">Sign Up</Button>
                             </div>
