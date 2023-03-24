@@ -11,15 +11,10 @@ class Home extends React.Component {
     render()
     {
         return (
-            <>
-                {this.props.flash ? (
-                    <FlashMessage errMessage={"Pass correct values"} duration={5000}/>
-                ) : null}
                 <div className="home">
                     <div className="home__background"/>
                     <Navbar/>
                 </div>
-            </>
         );
     }
 }

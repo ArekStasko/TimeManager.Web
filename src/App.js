@@ -7,6 +7,7 @@ import Home from './Pages/Home'
 import {PersistGate} from "redux-persist/integration/react";
 import SignIn from "./Pages/SignIn";
 import SignUp from "./Pages/SignUp";
+import FlashLayout from "./Layouts/FlashLayout";
 
 function App() {
   return (
@@ -15,9 +16,9 @@ function App() {
           <Router>
             <PersistGate persistor={persistor}>
               <Routes>
-                  <Route exact path="/" element={<Home />} />
-                  <Route exact path="/SignIn" element={<SignIn />} />
-                  <Route exact path="/SignUp" element={<SignUp />} />
+                  <Route exact path="/" element={<FlashLayout Component={Home}/>} />
+                  <Route exact path="/SignIn" element={<FlashLayout Component={SignIn}/>} />
+                  <Route exact path="/SignUp" element={<FlashLayout Component={SignUp}/>} />
                </Routes>
             </PersistGate>
           </Router>

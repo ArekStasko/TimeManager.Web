@@ -27,10 +27,6 @@ class SignUp extends React.Component {
         }
 
         return (
-            <>
-                {this.props.flash ? (
-                        <FlashMessage errMessage={"Pass correct values"} duration={5000} />
-                ) : null}
             <div className="signup">
                 <div className="signup__wrapper">
                     <div className="signup__wrapper--logo">
@@ -84,7 +80,6 @@ class SignUp extends React.Component {
                     </div>
                 </div>
             </div>
-            </>
         );
     }
 
