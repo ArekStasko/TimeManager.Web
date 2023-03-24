@@ -29,6 +29,7 @@ const rootReducer = (state = initialState, action) => {
             return{
                 ...state,
                 loading: false,
+                redirect: true,
                 flash: {
                     type: 'SUCCESS',
                     message: 'Welcome to my application !'
@@ -41,6 +42,7 @@ const rootReducer = (state = initialState, action) => {
             return{
                 ...state,
                 loading: false,
+                redirect: true,
                 flash: {
                     type: 'SUCCESS',
                     message: 'Nice to see you again !'
@@ -84,6 +86,7 @@ const rootReducer = (state = initialState, action) => {
             return{
                 ...state,
                 loading: false,
+                redirect: false,
                 flash: {
                     type: 'ERROR',
                     message: null,

@@ -12,19 +12,17 @@ class SignUp extends React.Component {
             username: "",
             password: "",
             repeatPassword: "",
-            redirect: false
         }
     }
 
     HandleSubmit = e => {
         e.preventDefault();
         this.props.register(this.state.username, this.state.password);
-        this.setState({redirect: true});
     }
 
     render(){
 
-        if(this.state.redirect && !this.props.loading){
+        if(this.props.redirect && !this.props.loading){
             return <Navigate to="/" />
         }
 
@@ -92,9 +90,10 @@ class SignUp extends React.Component {
 
 }
 
-const mapStateToProps = ({flash, loading}) => ({
+const mapStateToProps = ({flash, loading, redirect}) => ({
     flash,
     loading,
+    redirect
 });
 
 const mapDispatchToProps = (dispatch) => ({
