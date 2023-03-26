@@ -84,16 +84,18 @@ const rootReducer = (state = initialState, action) => {
             }
 
         }
-        case 'ERROR':
+        case 'ERROR':{
+            console.log(action)
             return{
                 ...state,
                 loading: false,
                 redirect: false,
                 flash: {
                     type: 'ERROR',
-                    message: null,
+                    message: action.exceptionMessage,
                 },
             };
+        }
         case "FLASH_RESET":
             return{
                 ...state,

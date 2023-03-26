@@ -10,7 +10,6 @@ class SignIn extends React.Component {
         this.state = {
             username: "",
             password: "",
-            redirect: false
         };
     }
 
@@ -22,7 +21,7 @@ class SignIn extends React.Component {
 
     render(){
 
-        if(this.state.redirect && !this.props.loading){
+        if(this.props.redirect && !this.props.loading){
             return <Navigate to="/" />
         }
 
@@ -75,9 +74,10 @@ class SignIn extends React.Component {
     }
 }
 
-const mapStateToProps = ({flash, loading }) => ({
+const mapStateToProps = ({flash, loading, redirect }) => ({
     flash,
     loading,
+    redirect
 });
 
 const mapDispatchToProps = (dispatch) => ({

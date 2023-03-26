@@ -7,7 +7,7 @@ function FlashLayout(props) {
     return(
         <>
             {props.flash ? (
-                <FlashMessage errMessage={"Example Error Message"} duration={5000} />
+                <FlashMessage errMessage={props.flash.message} duration={5000} />
             ) : null}
             {props.Component}
         </>

@@ -30,7 +30,7 @@ class Navbar extends React.Component  {
                         (
                             <div className="navbar__buttons">
                                 <Button sx={{ m: 2 }} variant="contained" size="large">Manager</Button>
-                                <Button sx={{ m: 2 }} variant="outlined" size="large" OnClick={() => this.signOutEvent()}>Sign Out</Button>
+                                <Button sx={{ m: 2 }} variant="outlined" size="large" onClick={() => this.signOutEvent()}>Sign Out</Button>
                             </div>
                         )
                         :

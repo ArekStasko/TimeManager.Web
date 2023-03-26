@@ -13,7 +13,7 @@ const FlashMessage = ({ errMessage, duration, resetFlash, flash }) => {
     }, [resetFlash, 100000]);
 
     const pick = () => {
-        switch (flash.type) {
+        switch (flash.flash.type) {
             case 'ERROR':
                 return(
                     <Alert severity="error">

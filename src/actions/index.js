@@ -13,7 +13,8 @@ export const register = (username, password) => (dispatch) => {
             dispatch({type: "REGISTER_SUCC", payload})
         })
         .catch(exception => {
-            dispatch({type: "ERROR", exception})
+            console.log(exception.message)
+            dispatch({type: "ERROR", exceptionMessage: exception.message})
         });
 };
 
@@ -24,7 +25,7 @@ export const login = (username, password) => (dispatch) => {
             dispatch({type: "LOGIN_SUCC", payload})
         })
         .catch(exception => {
-            dispatch({type: "ERROR", exception})
+            dispatch({type: "ERROR", exceptionMessage: exception.message})
         });
 };
 
@@ -38,7 +39,7 @@ export const checkToken = () => (dispatch) => {
             dispatch({type: "RESCTRICTED_AREA_RES", payload})
         })
         .catch(exception => {
-            dispatch({type: "ERROR"}, exception);
+            dispatch({type: "ERROR", exceptionMessage: exception.message});
         })
 }
 
