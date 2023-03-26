@@ -5,7 +5,11 @@ import { persistStore } from 'redux-persist'
 
 export const store = createStore(
     rootReducer,
-    applyMiddleware(thunk)
+    {
+        redirect: false,
+    },
+    applyMiddleware(thunk),
+
 )
 
 export const persistor = persistStore(store);

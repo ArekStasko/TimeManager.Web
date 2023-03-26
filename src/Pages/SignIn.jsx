@@ -1,5 +1,4 @@
 import {connect} from "react-redux";
-import FlashMessage from "../components/Flash";
 import React from "react";
 import {Navigate} from "react-router-dom";
 import {login} from "../actions";
@@ -40,12 +39,10 @@ class SignIn extends React.Component {
                                     value={this.state.username}
                                     onChange={e => this.setState({username: e.target.value})}
                                     variant="outlined"
-                                    margin="dense"
                                     id="outlined-basic"
+                                    margin="dense"
                                     label="Username"
                                 />
-                            </div>
-                            <div className="signin__form--input">
                                 <TextField
                                     value={this.state.password}
                                     onChange={e => this.setState({password: e.target.value})}
@@ -63,7 +60,7 @@ class SignIn extends React.Component {
                                     </>
                                 ) : (
                                     <>
-                                        <Button variant="outlined" size="large" onClick={e => this.HandleSubmit(e)}>Sign In</Button>
+                                        <Button className="signin__form--btn" variant="outlined" size="large" onClick={e => this.HandleSubmit(e)}>Sign In</Button>
                                     </>
                                 )
                             }

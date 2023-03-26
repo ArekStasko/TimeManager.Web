@@ -17,11 +17,13 @@ const rootReducer = (state = initialState, action) => {
             return{
                 ...state,
                 loading: true,
+                redirect: false
             }
         case 'REGISTER_REQ':
             return{
                 ...state,
                 loading: true,
+                redirect: false
             }
         case 'REGISTER_SUCC':{
             SaveToken(action.payload.data.token);

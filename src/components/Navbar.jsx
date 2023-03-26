@@ -22,22 +22,22 @@ class Navbar extends React.Component  {
         return (
             <div className="navbar">
                 <div className="navbar__header">
-                        <div/>
+                        <div className="navbar__header--icon" />
                         <Link href="#" underline="hover" color="white">Why TimeManager ?</Link>
                 </div>
                 {
                     this.props.access ?
                         (
                             <div className="navbar__buttons">
-                                <Button variant="contained" size="large">Manager</Button>
-                                <Button variant="outlined" size="large" OnClick={() => this.signOutEvent()}>Sign Out</Button>
+                                <Button sx={{ m: 2 }} variant="contained" size="large">Manager</Button>
+                                <Button sx={{ m: 2 }} variant="outlined" size="large" OnClick={() => this.signOutEvent()}>Sign Out</Button>
                             </div>
                         )
                         :
                         (
                             <div className="navbar__buttons">
-                                <Button variant="contained" size="large" href="/SignIn">Sign In</Button>
-                                <Button variant="contained" size="large" href="/SignUp">Sign Up</Button>
+                                <Button sx={{ m: 2 }} variant="contained" size="large" href="/SignIn">Sign In</Button>
+                                <Button sx={{ m: 2 }} variant="contained" size="large" href="/SignUp">Sign Up</Button>
                             </div>
                         )
                 }

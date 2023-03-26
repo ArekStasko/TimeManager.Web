@@ -42,8 +42,6 @@ class SignUp extends React.Component {
                                 id="outlined-basic"
                                 label="Username"
                             />
-                        </div>
-                        <div className="signup__form--input">
                             <TextField
                                 value={this.state.password}
                                 onChange={e => this.setState({password: e.target.value})}
@@ -52,8 +50,6 @@ class SignUp extends React.Component {
                                 label="Password"
                                 type="password"
                             />
-                        </div>
-                        <div className="signup__form--input">
                             <TextField
                                 value={this.state.repeatPassword}
                                 onChange={e => this.setState({repeatPassword: e.target.value})}

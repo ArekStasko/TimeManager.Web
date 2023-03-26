@@ -10,15 +10,17 @@ import SignUp from "./Pages/SignUp";
 import FlashLayout from "./Layouts/FlashLayout";
 
 function App() {
+
+
   return (
       <Provider store={store}>
         <div className="App">
           <Router>
             <PersistGate persistor={persistor}>
               <Routes>
-                  <Route exact path="/" element={<FlashLayout Component={Home}/>} />
-                  <Route exact path="/SignIn" element={<FlashLayout Component={SignIn}/>} />
-                  <Route exact path="/SignUp" element={<FlashLayout Component={SignUp}/>} />
+                  <Route exact path="/" element={<FlashLayout Component={<Home />}/>} />
+                  <Route exact path="/SignIn" element={<FlashLayout Component={<SignIn />}/>} />
+                  <Route exact path="/SignUp" element={<FlashLayout Component={<SignUp />}/>} />
                </Routes>
             </PersistGate>
           </Router>
@@ -26,5 +28,4 @@ function App() {
       </Provider>
   );
 }
-
 export default App;
