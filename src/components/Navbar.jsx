@@ -13,9 +13,9 @@ class Navbar extends React.Component  {
         this.props.checkToken();
     }
 
-    signOutEvent(){
+    signOutEvent(e){
+        e.preventDefault();
         this.props.signout();
-        window.location.reload(false);
     }
 
     render() {
@@ -30,7 +30,7 @@ class Navbar extends React.Component  {
                         (
                             <div className="navbar__buttons">
                                 <Button sx={{ m: 2 }} variant="contained" size="large">Manager</Button>
-                                <Button sx={{ m: 2 }} variant="outlined" size="large" onClick={() => this.signOutEvent()}>Sign Out</Button>
+                                <Button sx={{ m: 2 }} variant="outlined" size="large" onClick={(e) => this.signOutEvent(e)}>Sign Out</Button>
                             </div>
                         )
                         :

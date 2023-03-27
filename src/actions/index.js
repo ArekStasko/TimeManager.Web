@@ -1,8 +1,10 @@
 import axios from "axios";
 import {SignInCall, SignUpCall, VerifyToken} from "../api/apiCalls";
-import {GetToken, GetUserId} from "../api/auth/AuthHelper";
+import {GetToken, GetUserId, RemoveToken} from "../api/auth/AuthHelper";
 
-export const signout = () => (dispatch) => dispatch({type: "SIGN_OUT"});
+export const signout = () => (dispatch) => {
+    dispatch({type: "SIGN_OUT"});
+}
 
 export const register = (username, password) => (dispatch) => {
     dispatch({ type: "REGISTER_REQ" });

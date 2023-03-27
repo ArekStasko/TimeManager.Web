@@ -56,6 +56,7 @@ const rootReducer = (state = initialState, action) => {
             return{
                 ...state,
                 loading: false,
+                access: false,
                 flash: {
                     type: 'SUCCESS',
                     message: 'Hope to see you again !'
