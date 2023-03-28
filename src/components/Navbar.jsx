@@ -26,10 +26,10 @@ class Navbar extends React.Component  {
                         <Link href="#" underline="hover" color="white">Why TimeManager ?</Link>
                 </div>
                 {
-                    this.props.access ?
+                     true ?
                         (
                             <div className="navbar__buttons">
-                                <Button sx={{ m: 2 }} variant="contained" size="large">Manager</Button>
+                                <Button sx={{ m: 2 }} variant="contained" size="large" href="/Manager">Manager</Button>
                                 <Button sx={{ m: 2 }} variant="outlined" size="large" onClick={(e) => this.signOutEvent(e)}>Sign Out</Button>
                             </div>
                         )
@@ -46,7 +46,7 @@ class Navbar extends React.Component  {
     };
 
 }
-
+//this.props.access
 const mapStateToProps = ({flash, access, loading }) => ({
     flash,
     access,
