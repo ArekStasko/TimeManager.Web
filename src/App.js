@@ -9,7 +9,7 @@ import SignIn from "./Pages/SignIn";
 import SignUp from "./Pages/SignUp";
 import FlashLayout from "./Layouts/FlashLayout";
 import ManagerLayout from "./Layouts/ManagerLayout";
-import MainPage from "./Pages/MainPage";
+import Manager from "./Pages/Manager";
 
 function App() {
 
@@ -23,7 +23,7 @@ function App() {
                   <Route exact path="/" element={<FlashLayout Component={<Home />}/>} />
                   <Route exact path="/SignIn" element={<FlashLayout Component={<SignIn />}/>} />
                   <Route exact path="/SignUp" element={<FlashLayout Component={<SignUp />}/>} />
-                  <Route exact path="/Manager" element={<ManagerLayout Component={<MainPage />}/>} />
+                  <Route exact path="/Manager" element={<FlashLayout Component={<ManagerLayout />}/>} />
                </Routes>
             </PersistGate>
           </Router>

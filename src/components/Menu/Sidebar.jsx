@@ -4,12 +4,11 @@ import AddTaskIcon from "@mui/icons-material/AddTask";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import ViewKanbanIcon from "@mui/icons-material/ViewKanban";
 import AssessmentIcon from "@mui/icons-material/Assessment";
-import React, {useState} from "react";
+import React from "react";
 
 
-const Sidebar = () => {
+const Sidebar = ({tab, setTab}) => {
 
-    const [tab, setTab] = useState(0);
 
     return(
         <ThemeProvider theme={SidebarTheme}>
@@ -18,6 +17,7 @@ const Sidebar = () => {
                         <div className="sidebar__header--icon" />
                         <h2 className="sidebar__header--title">TimeManager</h2>
                     </div>
+
                     <Tabs
                         orientation="vertical"
                         variant="scrollable"
