@@ -2,7 +2,7 @@
 
 const Manager = () => {
     return(
-        <div>
+        <div className="manager">
             <h1>Manager</h1>
         </div>
     )
