@@ -1,6 +1,6 @@
 import Axios from 'axios';
 
-const API = 'https://localhost:8081/';
+const API = 'https://localhost:8070/';
 const AUTH = 'http://localhost:8080/';
 
 export const authAxiosInstance = Axios.default.create({ baseURL: AUTH });
