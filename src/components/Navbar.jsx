@@ -26,7 +26,7 @@ class Navbar extends React.Component  {
                         <Link href="#" underline="hover" color="white">Why TimeManager ?</Link>
                 </div>
                 {
-                     true ?
+                     this.props.access ?
                         (
                             <div className="navbar__buttons">
                                 <Button sx={{ m: 2 }} variant="contained" size="large" href="/Manager">Manager</Button>

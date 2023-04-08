@@ -25,6 +25,12 @@ const rootReducer = (state = initialState, action) => {
                 loading: true,
                 redirect: false
             }
+        case 'LOADING_ON':
+            return{
+                ...state,
+                loading: true,
+                redirect: false
+            }
         case 'REGISTER_SUCC':{
             SaveToken(action.payload.data.token);
             SaveUserId(action.payload.data.userId);
@@ -84,6 +90,13 @@ const rootReducer = (state = initialState, action) => {
                 access: false
             }
 
+        }
+        case 'GET_TASKS_RES':{
+            return{
+                ...state,
+                loading: false,
+                tasks: action.payload.data
+            }
         }
         case 'ERROR':{
             console.log(action)

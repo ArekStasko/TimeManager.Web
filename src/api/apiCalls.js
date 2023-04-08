@@ -10,8 +10,8 @@ export const SignInCall = (data) => authAxiosInstance.post('api/Auth/Login/login
 export const SignUpCall = (data) => authAxiosInstance.post('api/Auth/Register/register/', data);
 export const VerifyToken = (data) => authAxiosInstance.post('api/token/VerifyToken/verifyToken', data);
 
+export const GetTasks = (data, token) => apiAxiosInstance.post('data/Task/Get', {data: data, token: token});
 /*
-export const GetTasks = apiAxiosInstance.post('data/Task/Get');
 export const GetTaskById = apiAxiosInstance.post('data/Task/GetById');
 export const PostTask = apiAxiosInstance.post('data/Task/Post');
 export const DeleteTask = apiAxiosInstance.post('data/Task/Delete');

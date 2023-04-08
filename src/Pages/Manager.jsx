@@ -1,33 +1,40 @@
 import BarChart from "../components/Charts";
+import {getTasks} from "../actions";
+import {connect} from "react-redux";
+import {CircularProgress} from "@mui/material";
+import React, {useEffect} from "react";
 
 
-const Manager = () => {
+const Manager = (props) => {
 
-    //this is data for charts tests purposes
-    const data1 = [3, 1, 5, 8, 20, 10, 15, 30];
-    const data = {
-        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug"],
-        datasets: [
-            {
-                label: "Test Data Chart",
-                data: data1,
-                backgroundColor: "rgba(234, 87, 102, 0.6)",
-                borderColor: "rgba(234, 87, 102, 0.6)",
-                fill: false,
-                pointHoverRadius: 20,
-                pointHoverBorderWidth: 5,
-                type: "line",
-                order: 0,
-            },
-        ],
-    };
-
+    useEffect(()=>{
+        console.log("MANAGER")
+        props.getTasks();
+    }, [])
 
     return(
         <div className="manager">
-            <BarChart data={data} />
+            {
+                props.loading ? (
+                        <>
+                            <CircularProgress />
+                        </>
+                ) : (
+                    <>
+                    </>
+                )
+            }
         </div>
     )
 }
 
-export default Manager
+const mapStateToProps = ({loading, tasks }) => ({
+    loading,
+    tasks
+});
+
+const mapDispatchToProps = (dispatch) => ({
+    getTasks: () => dispatch(getTasks()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Manager);

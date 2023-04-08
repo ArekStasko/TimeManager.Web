@@ -2,12 +2,16 @@ import React from 'react';
 import {Bar} from "react-chartjs-2";
 import { Chart as ChartJS } from 'chart.js/auto'
 import { Chart }            from 'react-chartjs-2'
+import {CalculateTaskData} from "../services/ChartDataService";
 
 const BarChart = ({data}) => {
+
+    const processedData = CalculateTaskData(data);
+
     return (
         <div className="barchart" >
             <Bar
-            data={data}
+            data={processedData}
             options={{
                     responsive: true,
                     maintainAspectRatio: false,

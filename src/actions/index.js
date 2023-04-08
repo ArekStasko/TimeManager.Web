@@ -1,5 +1,5 @@
 import axios from "axios";
-import {SignInCall, SignUpCall, VerifyToken} from "../api/apiCalls";
+import {GetTasks, SignInCall, SignUpCall, VerifyToken} from "../api/apiCalls";
 import {GetToken, GetUserId, RemoveToken} from "../api/auth/AuthHelper";
 
 export const signout = () => (dispatch) => {
@@ -42,6 +42,22 @@ export const checkToken = () => (dispatch) => {
         })
         .catch(exception => {
             dispatch({type: "ERROR", exceptionMessage: exception.message});
+        })
+}
+
+export const getTasks = () => (dispatch) => {
+    console.log("MANAGER 1")
+
+    dispatch({type: "LOADING_ON"})
+    const token = GetToken();
+    const userId = GetUserId();
+    if(token == null || userId == null) return;
+    return GetTasks({data: "", userId: userId}, token)
+        .then(payload => {
+            dispatch({type: "GET_TASKS_RES", payload})
+        })
+        .catch(exception => {
+            dispatch({type: "ERROR", exceptionMessage: exception.message})
         })
 }
 
