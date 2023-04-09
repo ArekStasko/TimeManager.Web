@@ -19,6 +19,7 @@ const Calendar = () => {
     const [selected, setSelected] = useState(0);
     const open = Boolean(anchorEl);
     const options = ["Month", "Week"];
+    const optionsIcons = [<CalendarViewMonthIcon fontSize="small" />, <CalendarViewWeekIcon fontSize="small" />];
 
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
@@ -39,13 +40,13 @@ const Calendar = () => {
             <div className="calendar__navigation">
             <Button
                 variant="contained"
-                size="large"
                 aria-controls={open ? 'basic-menu' : undefined}
                 aria-haspopup="true"
                 aria-expanded={open ? 'true' : undefined}
                 onClick={handleClick}
+                startIcon={optionsIcons[selected]}
             >
-                View
+                {options[selected]}
             </Button>
             <Menu
                 id="basic-menu"
@@ -62,7 +63,11 @@ const Calendar = () => {
                         onClick={event => onMenuItemClick(event, index)}
                         selected={index === selected}
                     >
-                        {option}
+                        <ListItemIcon>
+                            {optionsIcons[index]}
+                        </ListItemIcon>
+                        <ListItemText>{option}</ListItemText>
+
                     </MenuItem>
                 ))}
             </Menu>
