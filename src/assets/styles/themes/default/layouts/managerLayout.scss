@@ -2,11 +2,10 @@
   width: 100%;
   height: 100%;
   background-color: #1a2027;
+  display: flex;
 
-  &__wrapper{
+  &__body{
     width: 100%;
     height: 100%;
-    padding-top: $wrapper-xs;
-    padding-left: $wrapper-s;
   }
 }

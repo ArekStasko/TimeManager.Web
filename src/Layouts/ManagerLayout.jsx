@@ -26,10 +26,12 @@ function ManagerLayout(props){
 
     return(
         <div className="managerLayout">
-            <Navbar />
             <Sidebar tab={tab} setTab={setTab} />
-            <div className="managerLayout__wrapper">
-                {renderByTab()}
+            <div className="managerLayout__body">
+                <Navbar />
+                <div className="managerLayout__body--wrapper">
+                    {renderByTab()}
+                </div>
             </div>
         </div>
     )
