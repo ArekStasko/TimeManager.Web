@@ -13,6 +13,7 @@ import {Button, ListItemIcon, ListItemText, Menu, MenuItem} from "@mui/material"
 import {useState} from "react";
 import CalendarViewWeekIcon from '@mui/icons-material/CalendarViewWeek';
 import CalendarViewMonthIcon from '@mui/icons-material/CalendarViewMonth';
+import {MonthLayout} from "../Layouts/MonthLayout";
 
 const Calendar = () => {
     const [anchorEl, setAnchorEl] = useState(null);
@@ -76,7 +77,7 @@ const Calendar = () => {
                 {
                     selected == 0 ? (
                         <div>
-                            Month
+                            <MonthLayout />
                         </div>
                     ) : (
                         <div>
