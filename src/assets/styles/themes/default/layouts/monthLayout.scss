@@ -2,16 +2,26 @@
   width: 100%;
   height: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
 
 
-  &__dayName{
-    width: 100%;
-    height: 60px;
+  &__dayBar{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid #E8EAF6;
-    border-right: .5px;
+
+    &--dayName{
+      width: 100%;
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid #E8EAF6;
+      border-right: .5px;
+    }
   }
+
+  &__body{
+
+  }
+
 }

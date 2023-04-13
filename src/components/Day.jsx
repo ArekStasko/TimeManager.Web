@@ -1,8 +1,7 @@
 
 
 
-export const Day = () => {
-
+export const Day = (props) => {
 
     return(
         <div className="day">
