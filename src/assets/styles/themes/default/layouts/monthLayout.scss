@@ -5,25 +5,4 @@
   flex-direction: column;
   justify-content: space-between;
 
-
-  &__dayBar{
-    display: flex;
-
-    &--dayName{
-      height: 60px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border: 1px solid #E8EAF6;
-      border-right: .5px;
-    }
-  }
-
-  &__body{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-  }
-
 }
