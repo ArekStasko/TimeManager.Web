@@ -1,5 +1,4 @@
-import Sidebar from "../components/Menu/Sidebar";
-import Navbar from "../components/Menu/Navbar";
+import Sidebar from "../components/Sidebar";
 import {useState} from "react";
 import Manager from "../Pages/Manager";
 import Calendar from "../Pages/Calendar";
@@ -28,10 +27,7 @@ function ManagerLayout(props){
         <div className="managerLayout">
             <Sidebar tab={tab} setTab={setTab} />
             <div className="managerLayout__body">
-                <Navbar />
-                <div className="managerLayout__body--wrapper">
                     {renderByTab()}
-                </div>
             </div>
         </div>
     )
