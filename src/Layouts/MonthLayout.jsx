@@ -3,6 +3,9 @@ import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid"
 import {customButtons, customViews} from "../components/CalendarFragment";
 import styled from "styled-components";
+import {Chip} from "@mui/material";
+
+const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
 export const StyleWrapper = styled.div`
   .fc {
@@ -31,6 +34,20 @@ export const MonthLayout = () => {
                         right: ''
                     }}
                     views={customViews}
+                    dayHeaderContent={({date}, b, c) => {
+                        return(
+                            <div className="calendar__month--header">
+                                <Chip label={days[date.getDay()]} variant="outlined" />
+                            </div>
+                        )
+                    }}
+                    dayCellContent={()=>{
+                        return(
+                            <div>
+
+                            </div>
+                        )
+                    }}
                 />
             </StyleWrapper>
     )
