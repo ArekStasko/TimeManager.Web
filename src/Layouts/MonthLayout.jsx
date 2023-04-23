@@ -7,7 +7,13 @@ import {CardContent, Chip, Typography} from "@mui/material";
 
 const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
-export const StyleWrapper = styled.div`
+export const MonthLayout = () => {
+
+     const Day = styled.div`
+        border-color: ${props => props.day ? "green" : "white"}
+     `
+
+     const StyleWrapper = styled.div`
   .fc {
     height: 90vh;
   }
@@ -24,9 +30,13 @@ export const StyleWrapper = styled.div`
   .fc-theme-standard td, .fc-theme-standard th{
     border: none;
   }
+
+  .fc .fc-daygrid-day-top{
+    display: flex;
+    justify-content: center;
+  }
 `
 
-export const MonthLayout = () => {
     return(
             <StyleWrapper>
                 <FullCalendar
@@ -45,26 +55,19 @@ export const MonthLayout = () => {
                             </div>
                         )
                     }}
-                    dayCellContent={()=>{
+                    dayCellContent={(date)=>{
+                        const currentDate = new Date();
                         return(
-                            <div className="calendar__month--dayCell">
+                            <Day day={date.date.getDate() === currentDate.getDate()} className="calendar__month--dayCell">
                                 <CardContent>
-                                    <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                                        Word of the Day
-                                    </Typography>
                                     <Typography variant="h5" component="div">
-                                        title
-                                    </Typography>
-                                    <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                                        adjective
+                                        {days[date.date.getDay()]}
                                     </Typography>
                                     <Typography variant="body2">
-                                        well meaning and kindly.
-                                        <br />
-                                        {'"a benevolent smile"'}
+                                        {date.date.getDate()} - {date.date.getFullYear()}
                                     </Typography>
                                 </CardContent>
-                            </div>
+                            </Day>
                         )
                     }}
                 />

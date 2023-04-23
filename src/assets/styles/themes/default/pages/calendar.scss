@@ -15,7 +15,12 @@
     }
 
     &--dayCell{
-      border-color: red;
+      height: 100%;
+      border: .5px solid white;
+
+      :hover{
+        background-color: rgba(0, 0, 0, 0.25);
+      }
     }
   }
 }
