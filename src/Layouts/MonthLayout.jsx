@@ -3,7 +3,8 @@ import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid"
 import {customButtons, customViews} from "../components/CalendarFragment";
 import styled from "styled-components";
-import {CardContent, Chip, Typography} from "@mui/material";
+import {CardContent, Chip, IconButton, Typography} from "@mui/material";
+import AddBoxIcon from '@mui/icons-material/AddBox';
 
 const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
@@ -51,7 +52,7 @@ export const MonthLayout = () => {
                     dayHeaderContent={({date}, b, c) => {
                         return(
                             <div className="calendar__month--header">
-                                <Chip label={days[date.getDay()]} variant="outlined" />
+                                <Chip sx={{ color: "white" }} label={days[date.getDay()]} variant="outlined" />
                             </div>
                         )
                     }}
@@ -59,13 +60,20 @@ export const MonthLayout = () => {
                         const currentDate = new Date();
                         return(
                             <Day day={date.date.getDate() === currentDate.getDate()} className="calendar__month--dayCell">
-                                <CardContent>
-                                    <Typography variant="h5" component="div">
-                                        {days[date.date.getDay()]}
-                                    </Typography>
-                                    <Typography variant="body2">
-                                        {date.date.getDate()} - {date.date.getFullYear()}
-                                    </Typography>
+                                <CardContent className="calendar__card">
+                                    <div className="calendar__card--header">
+                                        <Typography variant="h5" component="div">
+                                            {days[date.date.getDay()]}
+                                        </Typography>
+                                        <Typography variant="body2">
+                                            {date.date.getDate()} - {date.date.getFullYear()}
+                                        </Typography>
+                                    </div>
+                                    <div className="calendar__card--btn">
+                                        <IconButton color="primary">
+                                            <AddBoxIcon />
+                                        </IconButton>
+                                    </div>
                                 </CardContent>
                             </Day>
                         )

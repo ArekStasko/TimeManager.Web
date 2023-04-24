@@ -17,10 +17,27 @@
     &--dayCell{
       height: 100%;
       border: .5px solid white;
+    }
 
-      :hover{
-        background-color: rgba(0, 0, 0, 0.25);
-      }
+    &--dayCell:hover{
+      background-color: rgba(0, 0, 0, 0.15);
     }
   }
+
+  &__card{
+    display: flex;
+    flex-direction: column;
+
+    &--header{
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    &--btn{
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+
 }
