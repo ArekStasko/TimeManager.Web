@@ -10,6 +10,7 @@ import SignUp from "./Pages/SignUp";
 import FlashLayout from "./Layouts/FlashLayout";
 import ManagerLayout from "./Layouts/ManagerLayout";
 import Manager from "./Pages/Manager";
+import TaskForm from "./Pages/TaskForm";
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
                   <Route exact path="/SignIn" element={<FlashLayout Component={<SignIn />}/>} />
                   <Route exact path="/SignUp" element={<FlashLayout Component={<SignUp />}/>} />
                   <Route exact path="/Manager" element={<FlashLayout Component={<ManagerLayout />}/>} />
+                  <Route exact path="/Manager/TaskForm/:date" element={<FlashLayout Component={<TaskForm />}/>} />
                </Routes>
             </PersistGate>
           </Router>
