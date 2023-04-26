@@ -1,11 +1,12 @@
 import {Box, Button, Step, StepButton, Stepper, Typography} from "@mui/material";
 import {useState} from "react";
+import {Structure} from "./Forms/AddTask/Structure";
 
 export const FormStepper = () => {
     const [activeStep, setActiveStep] = useState(0);
     const [completed, setCompleted] = useState({});
 
-    const steps = ['Select campaign settings', 'Create an ad group', 'Create an ad'];
+    const steps = Structure()[0];
 
     const totalSteps = () => {
         return steps.length;
@@ -78,7 +79,7 @@ export const FormStepper = () => {
                 ) : (
                     <div className="formstepper__wrapper">
                         <div className="formstepper__wrapper--body">
-                            Step {activeStep + 1}
+                            {Structure()[1][activeStep]}
                         </div>
                         <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
                             <Button
