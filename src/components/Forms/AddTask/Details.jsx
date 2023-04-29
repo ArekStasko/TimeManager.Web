@@ -3,7 +3,11 @@ import {DateTimePicker, LocalizationProvider} from "@mui/x-date-pickers";
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import LowPriorityIcon from '@mui/icons-material/LowPriority';
 import PriorityHighIcon from '@mui/icons-material/PriorityHigh';
-export const Details = () => {
+import { setTaskData } from '../../../actions';
+import {connect} from "react-redux";
+
+
+export const Details = ({data, setData}) => {
 
     return(
         <div className="details">
@@ -16,16 +20,27 @@ export const Details = () => {
                         Category of your Task
                     </Typography>
                     <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                        <TextField id="filled-basic" label="Category" variant="filled" />
+                        <TextField
+                            value={data.Category}
+                            onChange={e => setData({...data, Category: e.target.value})}
+                            id="filled-basic"
+                            label="Category"
+                            variant="filled" />
                     </Box>
                 </Box>
-                <Box fullWidth sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <Box fullWidth sx={{ display: 'flex', flexDirection: 'column' }}>
                     <LocalizationProvider dateAdapter={AdapterDayjs}>
-                        <DateTimePicker label="Task start date" />
-                        <Typography>
-                            -
-                        </Typography>
-                        <DateTimePicker label="Task deadline" />
+                        <DateTimePicker
+                            value={data.StartDate}
+                            onChange={e => setData({...data, StartDate: e})}
+                            label="Task start date"
+                            sx={{ marginBottom: "20px" }}
+                        />
+                        <DateTimePicker
+                            value={data.Deadline}
+                            onChange={e => setData({...data, Deadline: e})}
+                            label="Task deadline"
+                        />
                     </LocalizationProvider>
                 </Box>
                 <Box>
@@ -39,8 +54,9 @@ export const Details = () => {
                             </IconButton>
                         </Tooltip>
                         <Slider
+                            value={data.Priority}
+                            onChange={e => setData({...data, Priority: e.target.value})}
                             size="small"
-                            defaultValue={50}
                             aria-label="Small"
                         />
                         <Tooltip title="Really Important">

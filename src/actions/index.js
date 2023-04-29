@@ -46,8 +46,6 @@ export const checkToken = () => (dispatch) => {
 }
 
 export const getTasks = () => (dispatch) => {
-    console.log("MANAGER 1")
-
     dispatch({type: "LOADING_ON"})
     const token = GetToken();
     const userId = GetUserId();
@@ -59,6 +57,10 @@ export const getTasks = () => (dispatch) => {
         .catch(exception => {
             dispatch({type: "ERROR", exceptionMessage: exception.message})
         })
+}
+
+export const setTaskData = () => (disptach) => {
+
 }
 
 export const resetFlash = () => {

@@ -1,10 +1,33 @@
 import {Box, Button, Step, StepButton, Stepper, Typography} from "@mui/material";
 import {useState} from "react";
-import {Structure} from "./Forms/AddTask/Structure";
+import {Type} from "./Forms/AddTask/Type";
+import {General} from "./Forms/AddTask/General";
+import {Details} from "./Forms/AddTask/Details";
+import dayjs from "dayjs";
 
 export const FormStepper = () => {
     const [activeStep, setActiveStep] = useState(0);
     const [completed, setCompleted] = useState({});
+    const [data, setData] = useState(
+        {
+            Type: "",
+            Title: "",
+            Description: "",
+            Category: "",
+            StartDate: dayjs(),
+            Deadline: dayjs(),
+            Priority: 50
+        }
+    )
+
+    const Structure = () => [
+        ["Type of Task", "General information's", "Details"],
+        [
+            <Type data={data} setData={setData} />,
+            <General data={data} setData={setData}/>,
+            <Details data={data} setData={setData}/>
+        ]
+    ]
 
     const steps = Structure()[0];
 

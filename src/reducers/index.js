@@ -115,6 +115,12 @@ const rootReducer = (state = initialState, action) => {
                 ...state,
                 flash: null
             }
+        case "TASK_ADD_SUBMIT":{
+
+        }
+        case "TASK_ADD_SUCCESS":{
+
+        }
         default:
             return state;
     };

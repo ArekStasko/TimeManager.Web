@@ -2,9 +2,7 @@ import {FormControl, IconButton, InputLabel, MenuItem, Select, Tooltip, Typograp
 import {useState} from "react";
 import InfoIcon from '@mui/icons-material/Info';
 
-export const Type = () => {
-    const [type, setType] = useState('');
-
+export const Type = ({data, setData}) => {
 
     return(
         <div className="type">
@@ -18,8 +16,8 @@ export const Type = () => {
             </Typography>
             <FormControl fullWidth className="type__form">
                 <Select
-                    value={type}
-                    onChange={e => setType(e.target.value)}
+                    value={data.Type}
+                    onChange={e => setData({...data, Type: e.target.value})}
                 >
                     <MenuItem value={10}>Repetitive Task</MenuItem>
                     <MenuItem value={20}>One-Time Task</MenuItem>
