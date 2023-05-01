@@ -5,6 +5,7 @@ import {customButtons, customViews} from "../components/CalendarFragment";
 import styled from "styled-components";
 import {CardContent, Chip, IconButton, Typography} from "@mui/material";
 import AddBoxIcon from '@mui/icons-material/AddBox';
+import {useHistory} from 'react-router-dom';
 
 const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
@@ -37,6 +38,11 @@ export const MonthLayout = () => {
     justify-content: center;
   }
 `
+    const RedirectToForm = (e, date) => {
+         e.preventDefault();
+         const history = useHistory();
+         history.pushState(`/taskform/${date.toString()}`);
+    }
 
     return(
             <StyleWrapper>
@@ -71,7 +77,7 @@ export const MonthLayout = () => {
                                     </div>
                                     <div className="calendar__card--btn">
                                         <IconButton color="primary">
-                                            <AddBoxIcon />
+                                            <AddBoxIcon onClick={e => RedirectToForm(e, date)} />
                                         </IconButton>
                                     </div>
                                 </CardContent>
