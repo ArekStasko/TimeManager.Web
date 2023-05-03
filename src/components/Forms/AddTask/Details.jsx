@@ -5,9 +5,16 @@ import LowPriorityIcon from '@mui/icons-material/LowPriority';
 import PriorityHighIcon from '@mui/icons-material/PriorityHigh';
 import { setTaskData } from '../../../actions';
 import {connect} from "react-redux";
+import dayjs from "dayjs";
+import {useEffect} from "react";
 
 
 export const Details = ({data, setData}) => {
+
+    useEffect(() => {
+        const url = window.location.href.split('/').reverse();
+        setData({...data, StartDate: dayjs(new Date(decodeURIComponent(url[0])))});
+    }, []);
 
     return(
         <div className="details">
