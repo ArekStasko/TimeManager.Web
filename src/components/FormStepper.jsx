@@ -1,13 +1,31 @@
-import {Box, Button, Step, StepButton, Stepper, Typography} from "@mui/material";
+import {
+    Accordion,
+    AccordionDetails,
+    AccordionSummary,
+    Box,
+    Button,
+    Step,
+    StepButton,
+    Stepper,
+    Typography
+} from "@mui/material";
 import {useState} from "react";
 import {Type} from "./Forms/AddTask/Type";
 import {General} from "./Forms/AddTask/General";
 import {Details} from "./Forms/AddTask/Details";
 import dayjs from "dayjs";
+import {useNavigate} from "react-router-dom";
+
+function ExpandMoreIcon() {
+    return null;
+}
 
 export const FormStepper = () => {
     const [activeStep, setActiveStep] = useState(0);
     const [completed, setCompleted] = useState({});
+    const [expanded, setExpanded] = useState(false);
+    const navigate = useNavigate();
+
     const [data, setData] = useState(
         {
             Type: "",
@@ -29,40 +47,28 @@ export const FormStepper = () => {
         ]
     ]
 
+
+    const handleChange = (panel) => (event, isExpanded) => {
+        setExpanded(isExpanded ? panel : false);
+    };
+
     const steps = Structure()[0];
 
-    const totalSteps = () => {
-        return steps.length;
-    };
-
-    const completedSteps = () => {
-        return Object.keys(completed).length;
-    };
-
     const isLastStep = () => {
-        return activeStep === totalSteps() - 1;
+        return activeStep === steps.length - 1;
     };
 
     const allStepsCompleted = () => {
-        return completedSteps() === totalSteps();
+        return Object.keys(completed).length === steps.length;
     };
 
     const handleNext = () => {
         const newActiveStep =
             isLastStep() && !allStepsCompleted()
-                ? // It's the last step, but not all steps have been completed,
-                  // find the first step that has been completed
+                ?
                 steps.findIndex((step, i) => !(i in completed))
                 : activeStep + 1;
         setActiveStep(newActiveStep);
-    };
-
-    const handleBack = () => {
-        setActiveStep((prevActiveStep) => prevActiveStep - 1);
-    };
-
-    const handleStep = (step) => () => {
-        setActiveStep(step);
     };
 
     const handleComplete = () => {
@@ -71,18 +77,12 @@ export const FormStepper = () => {
         setCompleted(newCompleted);
         handleNext();
     };
-
-    const handleReset = () => {
-        setActiveStep(0);
-        setCompleted({});
-    };
-
     return (
         <Box sx={{ width: '100%', height: '100%' }}>
             <Stepper nonLinear activeStep={activeStep}>
                 {steps.map((label, index) => (
                     <Step key={label} completed={completed[index]}>
-                        <StepButton color="inherit" onClick={handleStep(index)}>
+                        <StepButton color="inherit" onClick={e =>  setActiveStep(index)}>
                             {label}
                         </StepButton>
                     </Step>
@@ -90,15 +90,58 @@ export const FormStepper = () => {
             </Stepper>
             <div className="formstepper">
                 {allStepsCompleted() ? (
-                    <div className="formstepper__wrapper">
-                        <div className="formstepper__wrapper--body">
-                            All steps completed - you&apos;re finished
-                        </div>
+                    <Box className="formstepper__wrapper">
+                            <Typography>
+                                Task Summary
+                            </Typography>
+                            <Accordion expanded={expanded === 'Type'} onChange={handleChange('Type')}>
+                                <AccordionSummary expandIcon={<ExpandMoreIcon />} >
+                                    <Typography>Type</Typography>
+                                </AccordionSummary>
+                                <AccordionDetails>
+                                    <Typography>
+                                        Type of Task - {data.Type}
+                                    </Typography>
+                                </AccordionDetails>
+                            </Accordion>
+                            <Accordion expanded={expanded === 'General'} onChange={handleChange('General')}>
+                                <AccordionSummary expandIcon={<ExpandMoreIcon />} >
+                                    <Typography>General</Typography>
+                                </AccordionSummary>
+                                <AccordionDetails>
+                                        <Typography>
+                                            Task Title - {data.Title}
+                                        </Typography>
+                                        <Typography>
+                                            Task Description - {data.Description}
+                                        </Typography>
+                                </AccordionDetails>
+                            </Accordion>
+                            <Accordion expanded={expanded === 'Details'} onChange={handleChange('Details')}>
+                                <AccordionSummary expandIcon={<ExpandMoreIcon />} >
+                                    <Typography>Details</Typography>
+                                </AccordionSummary>
+                                <AccordionDetails>
+                                        <Typography>
+                                            Task Category - {data.Category}
+                                        </Typography>
+                                        <Typography>
+                                            Task Start Date - {data.StartDate.toLocaleString()}
+                                        </Typography>
+                                        <Typography>
+                                            Task Deadline - {data.Deadline.toLocaleString()}
+                                        </Typography>
+                                        <Typography>
+                                            Priority of Task - {data.Priority}
+                                        </Typography>
+                                </AccordionDetails>
+                            </Accordion>
                         <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
                             <Box sx={{ flex: '1 1 auto' }} />
-                            <Button onClick={handleReset}>Reset</Button>
+                            <Button onClick={e => navigate(`/Manager/`)} >Cancel</Button>
+                            <Button>Create</Button>
                         </Box>
-                    </div>
+                    </Box>
                 ) : (
                     <div className="formstepper__wrapper">
                         <div className="formstepper__wrapper--body">
@@ -108,7 +151,7 @@ export const FormStepper = () => {
                             <Button
                                 color="inherit"
                                 disabled={activeStep === 0}
-                                onClick={handleBack}
+                                onClick={() => setActiveStep((prevActiveStep) => prevActiveStep - 1)}
                                 sx={{ mr: 1 }}
                             >
                                 Back
@@ -119,12 +162,10 @@ export const FormStepper = () => {
                             </Button>
                             {activeStep !== steps.length &&
                                 (completed[activeStep] ? (
-                                    <Typography variant="caption" sx={{ display: 'inline-block' }}>
-                                        Step {activeStep + 1} already completed
-                                    </Typography>
+                                    <></>
                                 ) : (
                                     <Button onClick={handleComplete}>
-                                        {completedSteps() === totalSteps() - 1
+                                        {Object.keys(completed).length === steps.length - 1
                                             ? 'Finish'
                                             : 'Complete Step'}
                                     </Button>
