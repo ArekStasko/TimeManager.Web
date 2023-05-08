@@ -3,8 +3,8 @@ import Axios from 'axios';
 const API = 'https://localhost:8070/';
 const AUTH = 'http://localhost:8080/';
 
-export const authAxiosInstance = Axios.default.create({ baseURL: AUTH });
-export const apiAxiosInstance = Axios.default.create({ baseURL: API });
+export const authAxiosInstance = Axios.default.create({ baseURL: AUTH, rejectUnauthorized: false, requestCert: false, agent: false});
+export const apiAxiosInstance = Axios.default.create({ baseURL: API, rejectUnauthorized: false, requestCert: false, agent: false });
 
 export const SignInCall = (data) => authAxiosInstance.post('api/Auth/Login/login/', data);
 export const SignUpCall = (data) => authAxiosInstance.post('api/Auth/Register/register/', data);
